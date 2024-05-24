@@ -46,6 +46,13 @@ class ExerciseMathTest {
     @Test
     void testPower5(){
         int assumedAnswer = ExerciseMath.factional(12);
-        assertEquals(120,assumedAnswer,"TC5:想定の結果と異なります");
+        assertEquals(479001600,assumedAnswer,"TC5:想定の結果と異なります");
+    }
+
+    @Test
+    void testPower6(){
+        IllegalArgumentException expectedException = assertThrows(IllegalArgumentException.class,
+                () -> ExerciseMath.factional(13));
+        assertEquals("規格を超える桁数の入力が行われました",expectedException.getMessage(),"TC5:想定の結果と異なります");
     }
 }
